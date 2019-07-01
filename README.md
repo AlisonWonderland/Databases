@@ -8,6 +8,7 @@
 <p align="center">
  <b>--------------------DATABASE CREATION RELATED COMMANDS----------------</b><br>
 </p>
+
 * CREATE <database name>; Creates new database. Don't include <>.
 * DROP <database name>; Deletes database.
 * USE <database name>; Switches to new database so that you can use it.
