@@ -94,10 +94,22 @@ INSERT INTO table_name(column1_name, column2_name) VALUES (val1, val2);
 INSERT INTO table_name(column1_name) VALUES (val1);
 ```
 
----------------------------------MESSAGE RELATED COMMANDS----------------------------------------
+<p align="center">
+ <b>---------------------------MESSAGE RELATED COMMANDS----------------------------</b><br>
+</p>
+
 To see what the warnings are:
 ```sql
 SHOW WARNINGS;
+```
+
+<p align="center">
+ <b>---------------------------MISC COMMANDS----------------------------</b><br>
+</p>
+
+To get data from all columns:
+```sql
+SELECT * FROM table_name;
 ```
 
 ## Additional Notes
