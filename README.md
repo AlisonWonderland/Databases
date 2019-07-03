@@ -42,8 +42,18 @@ DROP TABLE table_name;
 ```
 
 Inserting data into our tables. col2 can come before col1, but val2 would have to be switched with val1. Commas separate different row entry values.:
-```
+```sql
 INSERT INTO table_name(column1_name, column2_name)
 VALUES (val1, val2)
       ,(val3, val4);
+      
+--------for one value:---------
+      
+INSERT INTO table_name(column1_name, column2_name) VALUES (val1, val2)'
+```
+
+---------------------------------MESSAGE RELATED COMMANDS----------------------------------------
+To see what the warnings are:
+```sql
+SHOW WARNINGS;
 ```
