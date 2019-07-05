@@ -112,6 +112,16 @@ To get data from all columns:
 SELECT * FROM table_name;
 ```
 
+To get data from a specific column:
+```sql
+SELECT column_name FROM table_name;
+```
+
+To get data from multiple columns:
+```sql
+SELECT column_name1, column_name2,3,4.. FROM table_name;
+```
+
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
 * CRUD are the four main operations that we will use on our data.
