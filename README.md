@@ -137,7 +137,7 @@ SELECT column_name or * FROM table_name WHERE column_name=val_u_want;
 
 Updating all instances of a value in a column:
 ```sql
-UPDATE table_name SET col_name='new_val' or #
+UPDATE table_name SET col_name='new_val' or #, col2_name....
 WHERE col_name='old_val' or #
 ```
 Good rule of thumb: Try selecting the data/row of data you want to change so that you can check that your WHERE condition gives you the right data to change.
