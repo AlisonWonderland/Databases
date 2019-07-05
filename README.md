@@ -1,8 +1,12 @@
 # Databases
 
-## Commands to use in WSL
+## Commands to start up mysql in WSL
 * sudo service mysql start
 * sudo mysql -u root. <-- To enter mysql command line.
+
+## How to install mysql
+Use: https://medium.com/@fiqriismail/how-to-setup-apache-mysql-and-php-in-linux-subsystem-for-windows-10-e03e67afe6ee
+But, for one part you need to look in the comments. When it doesn't ask for a password in the installation.
 
 ## SQL Commands
 <p align="center">
@@ -104,7 +108,7 @@ SHOW WARNINGS;
 ```
 
 <p align="center">
- <b>---------------------------MISC COMMANDS----------------------------</b><br>
+ <b>---------------------------READING DATA COMMANDS----------------------------</b><br>
 </p>
 
 To get data from all columns:
@@ -122,6 +126,51 @@ To get data from multiple columns:
 SELECT column_name1, column_name2,3,4.. FROM table_name;
 ```
 
+To get rows that have a certain value for a column:
+```sql
+SELECT column_name or * FROM table_name WHERE column_name=val_u_want;
+```
+
+<p align="center">
+ <b>---------------------------UPDATING DATA COMMANDS----------------------------</b><br>
+</p>
+
+Updating all instances of a value in a column:
+```sql
+UPDATE table_name SET col_name='new_val' or #
+WHERE col_name='old_val' or #
+```
+Good rule of thumb: Try selecting the data/row of data you want to change so that you can check that your WHERE condition gives you the right data to change.
+
+<p align="center">
+ <b>---------------------------DELETING DATA COMMANDS----------------------------</b><br>
+</p>
+
+Deleting all instances/row with a column value of val:
+```sql
+DELETE FROM table_name WHERE col_name='val' or #
+```
+
+Deleting all data/rows in a table(doesn't delete table):
+```sql
+DELETE FROM table_name;
+```
+
+<p align="center">
+ <b>---------------------------MISC COMMANDS----------------------------</b><br>
+</p>
+
+Aliases(useful when joining tables and columns have the same name):
+```sql
+SELECT column_name AS new_name FROM table_name;
+```
+Note: You can write the alias/new_name with '' to include spaces. EX: 
+```sql
+SELECT cat_breed AS 'cat breed' FROM table_name;
+```
+
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
 * CRUD are the four main operations that we will use on our data.
+* WHERE is by default case insensitive for val.
+* Primary keys won't/shouldn't change when rows are deleted because other tables might use those keys. Updating them can obviously cause issues.
