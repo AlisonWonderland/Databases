@@ -157,6 +157,21 @@ DELETE FROM table_name;
 ```
 
 <p align="center">
+ <b>---------------------------RUNNING SQL FILES COMMANDS----------------------------</b><br>
+</p>
+
+To run file in current directory:
+```sql
+source file_name.sql
+```
+
+To run file in a nested directory:
+```sql
+source /../parent_folder/folder_file_is_in file_name.sql
+```
+Note: You can't run files in another folder that isn't in the parent folder.
+
+<p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
 
