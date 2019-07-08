@@ -172,6 +172,37 @@ source /../parent_folder/folder_file_is_in file_name.sql
 Note: You can't run files in another folder that isn't in the parent folder.
 
 <p align="center">
+ <b>---------------------------STRING FUNCTIONS----------------------------</b><br>
+</p>
+
+To combine # of columns:
+```sql
+SELECT
+ CONCAT(col1, 'text', col2,...,col5,...) optional: AS 'alias'
+FROM table_name;
+```
+Note: 'text' is optional. You can add it when you want something in between the values of the combined columns.
+Also, CONCAT won't add the concated column to the table.
+
+To combine # of columns w/ the same separator between them:
+```sql
+SELECT
+ CONCAT_WS('-', col1, col2,...,col5,...) optional: AS 'alias'
+FROM table_name;
+```
+Note: This will create a table where the column data will be separated by '-'
+
+Getting a substring:
+```sql
+SUBSTRING('string', start_index, last_index)
+
+or
+
+SUBSTRING('string', last_index)
+```
+Note: Indicies start at 1. Second one will give you the substring from 1 to last_index.
+
+<p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
 
