@@ -234,11 +234,16 @@ Aliases(useful when joining tables and columns have the same name):
 ```sql
 SELECT column_name AS new_name FROM table_name;
 ```
-Note: You can write the alias/new_name with '' to include spaces. EX: 
+Note: You can write the alias/new_name with single quotes('') around to include spaces. EX: 
+
 ```sql
 SELECT cat_breed AS 'cat breed' FROM table_name;
 ```
 
+To get distinct values:
+```sql
+SELECT DISTINCT col_name FROM table_name;
+```
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
 * CRUD are the four main operations that we will use on our data.
