@@ -187,7 +187,7 @@ Also, CONCAT won't add the concated column to the table.
 To combine # of columns w/ the same separator between them:
 ```sql
 SELECT
- CONCAT_WS('-', col1, col2,...,col5,...) optional: AS 'alias'
+ CONCAT_WS('-', col1, col2,...,col5,...); optional: AS 'alias'
 FROM table_name;
 ```
 Note: This will create a table where the column data will be separated by '-'
@@ -198,9 +198,33 @@ SUBSTRING('string', start_index, last_index)
 
 or
 
-SUBSTRING('string', last_index)
+SUBSTRING('string', start_index)
+
+or 
+
+SUBSTR()
 ```
-Note: Indicies start at 1. Second one will give you the substring from 1 to last_index.
+Note: Indicies start at 1. Second one will give you the substring from start_index to the last character.
+
+To replace parts of a string:
+```sql
+SELECT REPLACE('string_that_needs_change', 'substring_that_will_change', 'replacement_substr');
+```
+
+To reverse string:
+```sql
+SELECT REVERSE('string' or col_name); optional: AS, FROM table (if you use col_name)
+```
+
+To get number of characters in a string:
+```sql
+SELECT CHAR_LENGTH('string' or col_name); optional: AS, FROM table (if you use col_name)
+```
+
+To lower/upper case a sub/string:
+```sql
+SELECT LOWER/UPPER('string' or col_name); optional: AS, FROM table (if you use col_name)
+```
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
