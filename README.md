@@ -227,6 +227,46 @@ SELECT LOWER/UPPER('string' or col_name); optional: AS, FROM table (if you use c
 ```
 
 <p align="center">
+ <b>---------------------------REFINING SELECTION COMMANDS----------------------------</b><br>
+</p>
+
+To get distinct values:
+```sql
+SELECT DISTINCT col_name FROM table_name;
+```
+Note: Separating multiple col_names with commas will give you back unique rows, i.e it will give you the same result if you used DISTINCT CONCAT(). 
+
+To sort data:
+```sql
+SELECT col_name FROM table_name ORDER BY col_name;
+
+SELECT col_name FROM table_name ORDER BY col_name DESC;
+
+SELECT col1_name, col2_name, col3_name FROM table_name ORDER BY 2;  optional: DESC
+
+SELECT col1_name, col2_name, col3_name FROM table_name ORDER BY col1_name, col2_name;  optional: DESC
+```
+Note: This will sort in ascending order by defualt. Use second one for descending order. Third one will sort the table by the second col(col2_name). Its a short hand method. 4th one will order by col1 and then order by col2. ORDER BY is alpha-numeric.
+
+To limit data printed/recieved:
+```sql
+SELECT col_name FROM table_name LIMIT 2;
+
+SELECT col_name FROM table_name LIMIT 0,2;
+```
+Note: This example will give you the first 2 rows of the column from the table. Second example will start the first row(represent by 0) and go for 2 rows. So it will give us the first 2 rows. Usually used with ORDER BY. 
+
+To get data containing the string between the wildcards:
+```sql
+WHERE col_name LIKE '%da%'
+
+WHERE col_name LIKE 'da%'
+
+WHERE col_name LIKE '____'
+```
+Note: Second one will search for data that starts with 'da'. Third one will search for data with the same amount of characters as the amount of underscores, in this example its 4 underscores so it will look for data that is 4 characters long. LIKE is used for better searching. The percentage symbols are called wildcards. CASE INSENSITIVE.
+
+<p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
 
@@ -240,12 +280,9 @@ Note: You can write the alias/new_name with single quotes('') around to include 
 SELECT cat_breed AS 'cat breed' FROM table_name;
 ```
 
-To get distinct values:
-```sql
-SELECT DISTINCT col_name FROM table_name;
-```
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
 * CRUD are the four main operations that we will use on our data.
 * WHERE is by default case insensitive for val.
 * Primary keys won't/shouldn't change when rows are deleted because other tables might use those keys. Updating them can obviously cause issues.
+* Pagination is an interesting concept.
