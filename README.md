@@ -263,8 +263,11 @@ WHERE col_name LIKE '%da%'
 WHERE col_name LIKE 'da%'
 
 WHERE col_name LIKE '____'
+
+WHERE col_name LIKE '%\%%'
+WHERE col_name LIKE '%\_%'
 ```
-Note: Second one will search for data that starts with 'da'. Third one will search for data with the same amount of characters as the amount of underscores, in this example its 4 underscores so it will look for data that is 4 characters long. LIKE is used for better searching. The percentage symbols are called wildcards. CASE INSENSITIVE.
+Note: Second one will search for data that starts with 'da'. Third one will search for data with the same amount of characters as the amount of underscores, in this example its 4 underscores so it will look for data that is 4 characters long. LIKE is used for better searching. The percentage symbols are called wildcards, they mean anything before and anything after respectively. CASE INSENSITIVE.
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
