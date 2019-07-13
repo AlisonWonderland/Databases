@@ -292,6 +292,21 @@ MIN and MAX:
 SELECT MIN(col) FROM table_name;
 
 SELECT MAX(col) FROM table_name;
+
+SELECT * FROM books WHERE pages = (SELECT MIN(pages) FROM books);
+
+SELECT * FROM books ORDER BY pages LIMIT 1;
+```
+Note: Third one will give you the row of the book with the smallest amount of pages. Third one uses sub queries, meaning two queries are happening at once. 4th does the same as the 3rd but is fastest.
+
+To get the SUM of all the data in a row:
+```sql
+SELECT author, SUM(pages) FROM books GROUP BY author;
+```
+
+To get the AVG of all the data in a row:
+```sql
+SELECT author, AVG(pages) FROM books GROUP BY author;
 ```
 
 <p align="center">
