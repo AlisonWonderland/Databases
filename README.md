@@ -283,7 +283,15 @@ Note: (DISTINCT col1, col2) would return the number of rows with distinct combin
 
 To combine identical data into single rows:
 ```sql
-GROUP BY
+SELECT col1,col2... aggregate_function() FROM table_name GROUP BY col1col2..;
+```
+Note: This is a confusing one to explain. As usual chaining columns after GROUP BY will give back unique results(think first name and last name). Use ANY_VALUE() around columns that are not mentioned in GROUP BY to remove error.
+
+MIN and MAX:
+```sql
+SELECT MIN(col) FROM table_name;
+
+SELECT MAX(col) FROM table_name;
 ```
 
 <p align="center">
