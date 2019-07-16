@@ -310,6 +310,14 @@ SELECT author, AVG(pages) FROM books GROUP BY author;
 ```
 
 <p align="center">
+ <b>---------------------------TIME RELATED INFO----------------------------</b><br>
+</p>
+For data types go to: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html
+For functions that work with the data types go to: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
+
+
+
+<p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
 
@@ -329,3 +337,5 @@ SELECT cat_breed AS 'cat breed' FROM table_name;
 * WHERE is by default case insensitive for val.
 * Primary keys won't/shouldn't change when rows are deleted because other tables might use those keys. Updating them can obviously cause issues.
 * Pagination is an interesting concept.
+* When to use TIMESTAMP and DATETIME: Timestamps are used for meta date, when things are created or updated.
+* DATETIME has a larger date range, while also being 2 time bigger.
