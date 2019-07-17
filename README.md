@@ -358,7 +358,15 @@ NOT/BETWEEN. To get data within a certain upper and lower range:
 SELECT... WHERE price BETWEEN val1 AND val2;
 SELECT... WHERE price NOT BETWEEN val1 AND val2;
 ```
-NOTE: You can only use AND with BETWEEN, you can't use &&. Use cast to compare: https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#operator_between .INCLUSIVE.
+NOTE: You can only use AND with BETWEEN, you can't use &&. Use cast to compare: https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#operator_between .INCLUSIVE. 
+
+
+NOT/IN. Used when OR would be used multiple times:
+```sql
+WHERE col_name IN ('val1', val2, 'val3');
+WHERE col_name IN ('val1', val2, 'val3');
+```
+NOTE: NOT IN will bring back rows that don't include the values specified in the parentheses.
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
@@ -372,6 +380,11 @@ Note: You can write the alias/new_name with single quotes('') around to include 
 
 ```sql
 SELECT cat_breed AS 'cat breed' FROM table_name;
+```
+
+MODULO
+```
+%
 ```
 
 ## Additional Notes
