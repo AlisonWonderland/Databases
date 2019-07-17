@@ -315,7 +315,50 @@ SELECT author, AVG(pages) FROM books GROUP BY author;
 For data types go to: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-types.html
 For functions that work with the data types go to: https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html
 
+<p align="center">
+ <b>---------------------------LOGICAL OPERATORS----------------------------</b><br>
+</p>
 
+Equality operator: =
+
+To not include certain data:
+```sql
+WHERE col NOT LIKE val;
+WHERE col != val;
+```
+
+Using Greater than/equal sign:
+```sql
+WHERE col > val;
+WHERE col >= val;
+```
+
+Using less than/equal sign:
+```sql
+WHERE col < val;
+WHERE col <= val;
+```
+
+AND:
+```sql
+WHERE col < val AND col = "some_val";
+WHERE col < val && col = "some_val";
+```
+NOTE: we can chain more than two expressions with AND.
+
+OR:
+```sql
+WHERE col < val OR col = "some_val";
+WHERE col < val || col = "some_val";
+```
+NOTE: we can chain more than two expressions with OR.
+
+NOT/BETWEEN. To get data within a certain upper and lower range:
+```sql
+SELECT... WHERE price BETWEEN val1 AND val2;
+SELECT... WHERE price NOT BETWEEN val1 AND val2;
+```
+NOTE: You can only use AND with BETWEEN, you can't use &&. Use cast to compare: https://dev.mysql.com/doc/refman/8.0/en/comparison-operators.html#operator_between .INCLUSIVE.
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
@@ -339,3 +382,4 @@ SELECT cat_breed AS 'cat breed' FROM table_name;
 * Pagination is an interesting concept.
 * When to use TIMESTAMP and DATETIME: Timestamps are used for meta date, when things are created or updated.
 * DATETIME has a larger date range, while also being 2 time bigger.
+* <b> Big note </b> 'a' = 'A'.
