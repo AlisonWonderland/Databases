@@ -368,6 +368,18 @@ WHERE col_name IN ('val1', val2, 'val3');
 ```
 NOTE: NOT IN will bring back rows that don't include the values specified in the parentheses.
 
+CASE STATEMENTS. Used similarly to if-else statements:
+```sql
+SELECT title, released_year,
+ CASE
+  WHEN released_year >= 2000 THEN 'Modern Lit'
+  WHEN released_year < val THEN 'some_val'
+  ELSE '20th Centrury Link'
+ END AS GENRE
+FROM books;
+```
+NOTE: THEN 'Modern Lit' means GENRE will be 'Modern Lit' if released_year >= 2000.
+
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
