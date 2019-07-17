@@ -408,3 +408,4 @@ MODULO
 * When to use TIMESTAMP and DATETIME: Timestamps are used for meta date, when things are created or updated.
 * DATETIME has a larger date range, while also being 2 time bigger.
 * <b> Big note </b> 'a' = 'A'.
+* NEED TO KNOW SELF JOINS
