@@ -71,6 +71,15 @@ CREATE TABLE tablename
 );
 ```
 
+FOREIGN KEY:
+```sql
+CREATE TABLE tablename
+(
+    colA INT,
+    FOREIGN KEY(colA) REFERENCES other_table(other_table_col_name)
+);
+```
+
 To print out all tables in a database:
 ```sql
 SHOW TABLES;
@@ -379,6 +388,17 @@ SELECT title, released_year,
 FROM books;
 ```
 NOTE: THEN 'Modern Lit' means GENRE will be 'Modern Lit' if released_year >= 2000.
+
+<p align="center">
+ <b>---------------------------JOINS----------------------------</b><br>
+</p>
+
+INNER JOIN:
+```sql
+SELECT * FROM table
+JOIN table2
+ ON table.id = table2.table_id;
+```
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
