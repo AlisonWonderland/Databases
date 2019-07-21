@@ -398,8 +398,19 @@ INNER JOIN:
 SELECT * FROM table
 JOIN table2
  ON table.id = table2.table_id;
+ 
+SELECT * FROM table
+INNER JOIN table2
+ ON table.id = table2.table_id;
 ```
-NOTE: In the ON portion we want to equal the primary and foreign key. In other words, we want to join where the two keys equal each other.
+NOTE: In the ON portion we want to equal the primary and foreign key. In other words, we want to join where the two keys equal each other and ignore all rows where the two values don't match.
+
+LEFT JOIN:
+```sql
+SELECT * FROM table
+LEFT JOIN table2
+ ON table.id = table2.table_id;
+```
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
@@ -419,6 +430,14 @@ MODULO
 ```
 %
 ```
+
+IFNULL:
+```
+IFNULL(val_you_want_to_check, replacement_val);
+
+IFNULL(SUM(amount), 0) AS total_spent; 
+```
+NOTE: Checks if a value is null and replaces it. If a value isn't null then that value will appear.
 
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
