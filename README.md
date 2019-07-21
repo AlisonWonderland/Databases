@@ -399,6 +399,7 @@ SELECT * FROM table
 JOIN table2
  ON table.id = table2.table_id;
 ```
+NOTE: In the ON portion we want to equal the primary and foreign key. In other words, we want to join where the two keys equal each other.
 
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
