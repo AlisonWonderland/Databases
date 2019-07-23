@@ -412,6 +412,27 @@ LEFT JOIN table2
  ON table.id = table2.table_id;
 ```
 
+RIGHT JOIN:
+```sql
+SELECT * FROM table
+RIGHT JOIN table2
+ ON table.id = table2.table_id;
+```
+
+ON DELETE CASCADE:
+```sql
+CREATE TABLE orders(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_date DATE,
+    amount DECIMAL(8,2),
+    customer_id INT,
+    FOREIGN KEY(customer_id) 
+        REFERENCES customers(id)
+        ON DELETE CASCADE
+);
+```
+NOTE: Key words to add in CREATE TABLE to delete any rows in the child table containing the foreign key of the rows deleted in the parent table.
+
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
@@ -433,7 +454,7 @@ MODULO
 
 IFNULL:
 ```
-IFNULL(val_you_want_to_check, replacement_val);
+IFNULL(col_val_you_want_to_check, replacement_val);
 
 IFNULL(SUM(amount), 0) AS total_spent; 
 ```
