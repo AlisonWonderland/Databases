@@ -453,12 +453,20 @@ MODULO
 ```
 
 IFNULL:
-```
+```sql
 IFNULL(col_val_you_want_to_check, replacement_val);
 
 IFNULL(SUM(amount), 0) AS total_spent; 
 ```
 NOTE: Checks if a value is null and replaces it. If a value isn't null then that value will appear.
+
+IS NULL:
+```sql
+SELECT *
+FROM table_name
+WHERE col.val IS NULL
+```
+NOTE: This will return all rows where col.val is null. Is null is self explanatory, it checks if a value is null.
 
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
