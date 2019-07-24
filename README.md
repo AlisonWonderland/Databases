@@ -387,7 +387,13 @@ SELECT title, released_year,
  END AS GENRE
 FROM books;
 ```
-NOTE: THEN 'Modern Lit' means GENRE will be 'Modern Lit' if released_year >= 2000.
+NOTE: THEN 'Modern Lit' means GENRE will be 'Modern Lit' if released_year >= 2000. When one WHEN statement is true, no other WHEN statements plus ELSE are used/checked. Kind of like else-if.
+
+IF-ELSE STATEMENTS:
+```sql
+IF(conditional_statement, if_val, else_val); optional: AS
+```
+NOTE: Only use it when you have two values you want assigned based on a conditional statement, otherwise use CASE. When the conditional statement is true then the if_val statement is used, else the else_val is used for the row value.
 
 <p align="center">
  <b>---------------------------JOINS----------------------------</b><br>
@@ -467,6 +473,18 @@ FROM table_name
 WHERE col.val IS NULL
 ```
 NOTE: This will return all rows where col.val is null. Is null is self explanatory, it checks if a value is null.
+
+ROUND:
+```sql
+ROUND(
+ AVG(col_val),
+ 2
+) AS rounded_avg
+```
+NOTE: Functions that rounds. Takes in the column you want to round and how many numbers you want after the decimal point. In this case the average will get round to two digits after the decimal point.
+Examples:
+If average is 7.8624 then after Round() it will be 7.86.
+If average is 123.24 then after Round() it will be 123.24.
 
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
