@@ -71,6 +71,18 @@ CREATE TABLE tablename
 );
 ```
 
+PRIMARY KEY FOR TO LIMIT ENTRIES TO UNIQUE COMBINATIONS:
+```sql
+CREATE TABLE likes (
+    user_id INT NOT NULL,
+    photo_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    PRIMARY KEY(user_id, photo_id) --Means that the user_id and photo_id must be UNIQUE to be entered. The combo will can only happen/                                      --appear once in the table
+);
+```
+
 FOREIGN KEY:
 ```sql
 CREATE TABLE tablename
