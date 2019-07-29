@@ -163,6 +163,7 @@ WHERE col_name='old_val' or #
 ```
 Good rule of thumb: Try selecting the data/row of data you want to change so that you can check that your WHERE condition gives you the right data to change.
 
+
 <p align="center">
  <b>---------------------------DELETING DATA COMMANDS----------------------------</b><br>
 </p>
@@ -192,6 +193,7 @@ source /../parent_folder/folder_file_is_in file_name.sql
 ```
 Note: You can't run files in another folder that isn't in the parent folder.
 
+
 <p align="center">
  <b>---------------------------STRING FUNCTIONS----------------------------</b><br>
 </p>
@@ -205,6 +207,7 @@ FROM table_name;
 Note: 'text' is optional. You can add it when you want something in between the values of the combined columns.
 Also, CONCAT won't add the concated column to the table.
 
+
 To combine # of columns w/ the same separator between them:
 ```sql
 SELECT
@@ -212,6 +215,7 @@ SELECT
 FROM table_name;
 ```
 Note: This will create a table where the column data will be separated by '-'
+
 
 Getting a substring:
 ```sql
@@ -226,6 +230,7 @@ or
 SUBSTR()
 ```
 Note: Indicies start at 1. Second one will give you the substring from start_index to the last character.
+
 
 To replace parts of a string:
 ```sql
@@ -257,6 +262,7 @@ SELECT DISTINCT col_name FROM table_name;
 ```
 Note: Separating multiple col_names with commas will give you back unique rows, i.e it will give you the same result if you used DISTINCT CONCAT(). 
 
+
 To sort data:
 ```sql
 SELECT col_name FROM table_name ORDER BY col_name;
@@ -269,6 +275,7 @@ SELECT col1_name, col2_name, col3_name FROM table_name ORDER BY col1_name, col2_
 ```
 Note: This will sort in ascending order by defualt. Use second one for descending order. Third one will sort the table by the second col(col2_name). Its a short hand method. 4th one will order by col1 and then order by col2. ORDER BY is alpha-numeric.
 
+
 To limit data printed/recieved:
 ```sql
 SELECT col_name FROM table_name LIMIT 2;
@@ -276,6 +283,7 @@ SELECT col_name FROM table_name LIMIT 2;
 SELECT col_name FROM table_name LIMIT 0,2;
 ```
 Note: This example will give you the first 2 rows of the column from the table. Second example will start the first row(represent by 0) and go for 2 rows. So it will give us the first 2 rows. Usually used with ORDER BY. 
+
 
 To get data containing the string between the wildcards:
 ```sql
@@ -290,6 +298,13 @@ WHERE col_name LIKE '%\_%'
 ```
 Note: Second one will search for data that starts with 'da'. Third one will search for data with the same amount of characters as the amount of underscores, in this example its 4 underscores so it will look for data that is 4 characters long. LIKE is used for better searching. The percentage symbols are called wildcards, they mean anything before and anything after respectively. CASE INSENSITIVE.
 
+
+HAVING(used with GROUP BY instead of WHERE):
+```sql
+HAVING col_name = val;
+```
+
+
 <p align="center">
  <b>---------------------------AGGREGATE FUNCTIONS----------------------------</b><br>
 </p>
@@ -302,11 +317,13 @@ SELECT COUNT(*) FROM table_name WHERE col_name LIKE '%%';
 ```
 Note: (DISTINCT col1, col2) would return the number of rows with distinct combined values. Second line is to show that you can use COUNT() with LIKE.
 
+
 To combine identical data into single rows:
 ```sql
 SELECT col1,col2... aggregate_function() FROM table_name GROUP BY col1col2..;
 ```
 Note: This is a confusing one to explain. As usual chaining columns after GROUP BY will give back unique results(think first name and last name). Use ANY_VALUE() around columns that are not mentioned in GROUP BY to remove error.
+
 
 MIN and MAX:
 ```sql
@@ -319,6 +336,7 @@ SELECT * FROM books WHERE pages = (SELECT MIN(pages) FROM books);
 SELECT * FROM books ORDER BY pages LIMIT 1;
 ```
 Note: Third one will give you the row of the book with the smallest amount of pages. Third one uses sub queries, meaning two queries are happening at once. 4th does the same as the 3rd but is fastest.
+
 
 To get the SUM of all the data in a row:
 ```sql
@@ -367,12 +385,14 @@ WHERE col < val && col = "some_val";
 ```
 NOTE: we can chain more than two expressions with AND.
 
+
 OR:
 ```sql
 WHERE col < val OR col = "some_val";
 WHERE col < val || col = "some_val";
 ```
 NOTE: we can chain more than two expressions with OR.
+
 
 NOT/BETWEEN. To get data within a certain upper and lower range:
 ```sql
@@ -401,11 +421,13 @@ FROM books;
 ```
 NOTE: THEN 'Modern Lit' means GENRE will be 'Modern Lit' if released_year >= 2000. When one WHEN statement is true, no other WHEN statements plus ELSE are used/checked. Kind of like else-if.
 
+
 IF-ELSE STATEMENTS:
 ```sql
 IF(conditional_statement, if_val, else_val); optional: AS
 ```
 NOTE: Only use it when you have two values you want assigned based on a conditional statement, otherwise use CASE. When the conditional statement is true then the if_val statement is used, else the else_val is used for the row value.
+
 
 <p align="center">
  <b>---------------------------JOINS----------------------------</b><br>
@@ -422,6 +444,7 @@ INNER JOIN table2
  ON table.id = table2.table_id;
 ```
 NOTE: In the ON portion we want to equal the primary and foreign key. In other words, we want to join where the two keys equal each other and ignore all rows where the two values don't match.
+
 
 LEFT JOIN:
 ```sql
@@ -451,6 +474,7 @@ CREATE TABLE orders(
 ```
 NOTE: Key words to add in CREATE TABLE to delete any rows in the child table containing the foreign key of the rows deleted in the parent table.
 
+
 <p align="center">
  <b>---------------------------MISC COMMANDS----------------------------</b><br>
 </p>
@@ -478,6 +502,7 @@ IFNULL(SUM(amount), 0) AS total_spent;
 ```
 NOTE: Checks if a value is null and replaces it. If a value isn't null then that value will appear.
 
+
 IS NULL:
 ```sql
 SELECT *
@@ -485,6 +510,7 @@ FROM table_name
 WHERE col.val IS NULL
 ```
 NOTE: This will return all rows where col.val is null. Is null is self explanatory, it checks if a value is null.
+
 
 ROUND:
 ```sql
@@ -497,6 +523,7 @@ NOTE: Functions that rounds. Takes in the column you want to round and how many 
 Examples:
 If average is 7.8624 then after Round() it will be 7.86.
 If average is 123.24 then after Round() it will be 123.24.
+
 
 ## Additional Notes
 * Usernames are a good example of a primary key when you don't want them to be duplicated. That way you can use the error in mySQL and pass it back to the user. 
